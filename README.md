@@ -2,7 +2,7 @@
 
 _H2OhNo_
 
-_Detecting & Reporting Water Contamination_
+_Detecting and Reporting Water Contamination_
 
 **Contamination Types:**
 * Lead
