@@ -1,5 +1,5 @@
 # H2OhNo
-##About
+
 _H2OhNo_
 
 _Detecting & Reporting Water Contamination_
