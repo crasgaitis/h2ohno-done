@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>H2OhNo</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/900869251269791744/944454846365458442/Capture.PNG?width=480&height=629">
+ 
+<body style="text-align:center; overflow-y: auto">
+<div style = "background-color: #00A2C3;">
+    <ul style = "z-index: 2">
+  <li><a href="map.html">Map</a></li>
+  <li><a href="scan.html">Scan</a></li>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="data.html">Data</a></li>
+  <li><a href="chat.html">Chat</a></li>
+    </ul></div>
+<h1 style = "z-index: 1; margin-left: 38vw">H2OhNo</h1>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = "margin-top: -280px; z-index: 3">
+  <path fill="#00A2C3" fill-opacity="0.8" d="M0,96L48,106.7C96,117,192,139,288,133.3C384,128,480,96,576,112C672,128,768,192,864,224C960,256,1056,256,1152,229.3C1248,203,1344,149,1392,122.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+</svg>
+
+<section class="flex-container">
+  <div class="fitem" style = "z-index: 4">
+    <p style = "margin-top: 65px; margin-bottom: 15px; font-size: 60px; ">💧</p>
+    <h2>mission</h2>
+    <p style = "margin-left: 50px; margin-right: 50px">Inaccessibility to clean water  is an ongoing struggle for many developing regions, leading to unsanitary living conditions and fatal diseases. <em>H2OhNo</em> aims to raise awareness about international water crises and provide tools to detect and report water contamination.</p>
+  </div>
+
+  <div class="fitem2">
+<br style = "height: 60px"/>
+<a href = "data.html" class="button"><span>📉 What's up with water? </span></a>
+<div id="text-box"></div>
+
+</div>
+  </div>
+</section>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 223" style = "position: absolute; bottom: 0; left: 0; -webkit-transform: scaleX(-1);  transform: scaleX(-1); z-index: 5">
+  <path fill="#0691AB" d="M0,192L80,192C160,192,320,192,480,170.7C640,149,800,107,960,85.3C1120,64,1280,64,1360,64L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+</svg>
+
+</body>
+ 
+</html>
+    <script src="script.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    <script>
+      $(document).ready( function() {
+        var textArray = [
+            '884 million people in the world lack access to safe water supplies ',
+            'Diarrhea caused by inadequate drinking water, sanitation, and hand hygiene kills an estimated 842,000 people every year globally, or approximately 2,300 people per day.',
+            'By 2025, 1.8 billion people will be living in countries or regions with absolute water scarcity',
+            'More than 80% of sewage in developing countries is discharged untreated, polluting rivers, lakes and coastal areas.',
+            'Almost 2 in 3 people who need safe drinking water survive on less than $2 a day',
+            'More than 1/2 of all primary schools in developing countries do not have adequate water facilities and nearly 2/3 lack adequate sanitation.',
+            'Up to 80% of illnesses in the developing world are linked to inadequate water and sanitation. ',
+            'The Food Security Innovation and Mobilization initiative in Peru, Bolivia and Burkina Faso enhances access to groundwater resources ($17 million, 2015 to 2020).',
+           
+            'Water, sanitation, and hygiene has the potential to prevent at least 9% of the global disease burden and 6% of global deaths.',
+            'The impact of clean water technologies on public health in the U.S. is estimated to have had a rate of return of 23 to 1 for investments in water filtration and chlorination during the first half of the 20th century.',
+            'Improved sanitation contributed to a 15% decrease in diarrheal deaths in Southeast Asia, East Asia, and Oceania, and more than a 10% decrease in diarrheal deaths globally.',
+            'In least developed countries, 22% of health care facilities have no water service, 21% no sanitation service, and 22% no waste management service.',
+            'Every minute a newborn dies from infection caused by lack of safe water and an unclean environment.',
+            'Every $1 invested in water and toilets returns an average of $4 in increased productivity.',
+            'Before you criticize someone, walk a mile in their shoes. That way, you\'ll be a mile from them and have their shoes.',
+            '31% of schools do not have clean water.',
+          
+        ];
+        $('#text-box').randomText( textArray, 5000, " " );
+    });
+  
+    $.fn.randomText = function( textArray, interval, randomEle, prevText ) {
+        var obj = $(this);
+        if( $('#text-content').length == 0 ){ obj.append('<div id="text-content">'); }
+        var textCont = $('#text-content');
+        if( typeof randomEle != 'undefined' ){ if( $('#randomizer').length == 0 ){ obj.append('<a href="javascript:;" id="randomizer"><em>' + randomEle ); } }
+        textCont.fadeOut( 'fast', function() {
+            var chosenText = random_array( textArray );
+            while( chosenText == prevText ) { chosenText = random_array( textArray ); }
+            textCont.empty().html( chosenText );
+            textCont.fadeIn( 'fast' );
+            sendText = chosenText;
+        });
+        timeOut = setTimeout( function(){ obj.randomText( textArray, interval, randomEle, sendText ); }, interval );
+        $("#randomizer").click( function(){
+            if( !textCont.is(':animated') ) { clearTimeout( timeOut ); obj.randomText( textArray, interval, randomEle, sendText );}
+        });
+    }
+
+    function random_array( aArray ) {
+        var rand = Math.floor( Math.random() * aArray.length + aArray.length );
+        var randArray = aArray[ rand - aArray.length ];
+        return randArray;
+    }
+    </script>
+    
+  </body>
+</html>

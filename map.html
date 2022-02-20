@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>H2OhNo Map</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/900869251269791744/944454846365458442/Capture.PNG?width=480&height=629">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+ 
+<body style="text-align:center; overflow-y: auto">
+<div style = "background-color: #00A2C3;">
+    <ul style = "z-index: 2">
+  <li><a href="map.html">Map</a></li>
+  <li><a href="scan.html">Scan</a></li>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="data.html">Data</a></li>
+  <li><a href="chat.html">Chat</a></li>
+    </ul></div>
+<h1 style = "z-index: 1; margin-left: 38vw">H2OhNo</h1>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = "margin-top: -280px; z-index: 3">
+  <path fill="#00A2C3" fill-opacity="0.8" d="M0,96L48,106.7C96,117,192,139,288,133.3C384,128,480,96,576,112C672,128,768,192,864,224C960,256,1056,256,1152,229.3C1248,203,1344,149,1392,122.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+</svg>
+
+<div id = "legend"> 
+  <h2 style = "font-size: 28px; margin: 0; padding-bottom: 0">Legend</h2>
+  <p style = "font-size: 17px; padding: 0; margin: 0; margin-top: 14px; margin-bottom: 15px"><img src = "https://media.discordapp.net/attachments/900869251269791744/944482506751750164/Untitled_design_77.png" alt = "ricon" style = "height: 35px; display: inline; margin-bottom: -11px">Rust <img src = "https://media.discordapp.net/attachments/900869251269791744/944482738285740085/Untitled_design_78.png" alt = "licon" style = "height: 35px; display: inline; margin-bottom: -11px; padding-left: 20px">Lead <img src = "https://media.discordapp.net/attachments/844417162785456128/944494610737164328/Untitled_design_7923.png" alt = "cicon" style = "height: 35px; display: inline; margin-bottom: -11px; padding-left: 20px">Copper 
+    <img src = "https://media.discordapp.net/attachments/844417162785456128/944654637196247080/Untitled_design_80.png" alt = "sicon" style = "height: 35px; display: inline; margin-bottom: -11px; padding-left: 20px">Sewage
+  
+  </p> 
+
+</div>
+<div id="map"></div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCY4sc5XRL5shzYdILrgbcHvDeUU_RhYU&callback=initMap"></script>
+
+<script>
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: new google.maps.LatLng(39.8097343, -98.5556199),
+    zoom: 4,
+  });
+
+  const icons = {
+    rust: {
+      icon: "https://media.discordapp.net/attachments/900869251269791744/944482506751750164/Untitled_design_77.png",
+    },
+    lead: {
+       icon: "https://media.discordapp.net/attachments/900869251269791744/944482738285740085/Untitled_design_78.png",
+    },
+    copper: {
+      icon: 
+      "https://media.discordapp.net/attachments/844417162785456128/944494610737164328/Untitled_design_7923.png"
+    },
+    sewage: {
+      icon: "https://media.discordapp.net/attachments/844417162785456128/944654637196247080/Untitled_design_80.png"
+    }
+  };
+  
+  const features = [
+    {
+      position: new google.maps.LatLng(42.332840647948146, -83.1053871243581),
+      type: "rust",
+    },
+    {
+      position: new google.maps.LatLng(42.26010842630576, -83.16068171585205),
+      type: "rust",
+    },
+    {
+      position: new google.maps.LatLng(42.35234452256462, -83.0798460344654),
+      type: "rust",
+    },
+    {
+      position: new google.maps.LatLng(42.35225455903769, -83.08087175072625),
+      type: "rust",
+    },
+    {
+      position: new google.maps.LatLng(42.35370801205244, -83.07877868397605),
+      type: "rust",
+    },
+    {
+      position: new google.maps.LatLng(39.940600685671804, -75.23245850131052),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(39.94066649292193, -75.23262077494978),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(39.94060398135162, -75.2324833699824),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(26.311669947006596, -97.81698429261236),
+      type: "copper",
+    },
+    {
+      position: new google.maps.LatLng(42.905814516653564, -120.04334047068602),
+      type: "copper",
+    },
+    {
+      position: new google.maps.LatLng(8.949585027012759, 38.749981318771475),
+      type: "copper",
+    },
+    {
+      position: new google.maps.LatLng(8.944497846441017, 38.74225655710131),
+      type: "copper",
+    },
+    {
+      position: new google.maps.LatLng(8.986210624960295, 38.73367348857888),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(8.97451118288266, 38.72045556305436),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(8.975698100008179, 38.72577706553825),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(8.965439616636585, 38.71556321317984),
+      type: "sewage",
+    },
+        {
+      position: new google.maps.LatLng(9.026899926036078, 38.775152983054596),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(8.98241795741425, 38.78958792624372),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(9.046572894731943, 38.69749298869711),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(8.969870772927377, 38.7075974489295),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(3.022821919932491, 46.38099079359115),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(-1.2603410351478623, 41.6348972462505),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(-17.05956197167821, 12.318587855027085),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(-12.42868497339627, 22.975325681231784),
+      type: "sewage",
+    },
+    {
+      position: new google.maps.LatLng(-16.7652494263364, 15.328841632738516),
+      type: "sewage",
+    },
+        {
+      position: new google.maps.LatLng(12.54074557064464, 5.963834025838421),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(12.068453008049236, 10.644009607243781),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(12.883689874036342, 13.30270089996701),
+      type: "lead",
+    },
+    {
+      position: new google.maps.LatLng(12.197344056468305, 4.359830188079776),
+      type: "lead",
+    },
+  ];
+
+
+  for (let i = 0; i < features.length; i++) {
+    const marker = new google.maps.Marker({
+      position: features[i].position,
+      icon: icons[features[i].type].icon,
+      map: map,
+    });
+  }
+}
+
+</script>
+</body>
+ 
+</html>
+    
+  </body>
+</html>

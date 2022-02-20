@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-image: url("https://media.discordapp.net/attachments/844417162785456128/944437760608055376/photo-1568145675395-66a2eda0c6d7.jpg?width=445&height=593"); background-size: cover;
+}
+
+
+h1{
+position: relative; padding-top: 30px; color: white; 
+font-size: 70px; font-family: 'Fredoka One', cursive; letter-spacing: 2px;
+text-shadow: 3px 3px rgba(18, 75, 75, 0.5);
+}
+
+h2{
+color: #00A2C3;
+font-size: 40px; font-family: 'Fredoka One', cursive; letter-spacing: 2px;
+margin-bottom: 0; margin-top: 0
+}
+
+p{
+  font-family: 'Poppins', sans-serif; color: black; font-size: 20px; margin-left: 170px; margin-right: 170px
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #00A2C3;
+  opacity: 0.9;
+  width: 40vw; margin-left: 30vw
+}
+
+li {
+  float: left;
+  font-size: 22px;
+  width: 20%;
+  font-family: 'Poppins', sans-serif;
+}
+
+li a {
+  display: block;
+  color: #EEEFFF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.ref) {
+   font-style: italic
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+div[class^="fitem"] {
+  width: 47vw;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  border-radius: 20px
+}
+
+.fitem{
+  background-color: white;
+  margin-top: -180px;
+  height: 520px;
+  display: relative;
+  z-index: 85;
+}
+
+.fitem2{
+  background-color: #7A99AA;
+  margin-top: -20px;
+  height: 360px;
+}
+
+.afitem3{
+  background-color: white;
+  margin-left: 15vw;
+}
+
+.afitem4{
+  background-color: rgb(122, 153, 170, 0.5);
+  margin-right: 15vw;
+  margin-left: 50vw;
+  border-radius: 20px;
+  height: 400px;
+}
+
+#text-box{
+  color: #EEEFFF;
+  font-size: 20px;
+  font-family: 'Poppins';
+  padding: 150px;
+  padding-top: 50px
+}
+
+.button {
+  background-color: transparent;
+  border: 2px solid #D2F8FF;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: white;
+  border: white
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  right: 0;
+  opacity: 1
+}
+
+#legend{
+  margin-top: -180px;
+  margin-left: 5vw;
+  width: 40vw;
+  background-color: #D2F8FF;
+  color: #00A2C3;
+  border-radius: 20px;
+  padding: 20px
+}
+
+#map {
+  height: 500px;
+  width: 100vw;
+  margin-top: 20px
+}
+
+#chart{
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+#label-container{
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px
+}
