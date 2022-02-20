@@ -4,7 +4,7 @@ _H2OhNo_
 
 _Detecting and Reporting Water Contamination_
 
-**Contamination Types:**
+**Contamination Types :**
 * Lead
 * Copper
 * Rust (Iron)
